@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lucas Crepin · Masseur-Kinésithérapeute</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="Masseur-kinésithérapeute remplaçant. Compétences, parcours, modalités d’exercice et contact." />
+</head>
+<script>
+  // met à jour --header-h en fonction de la hauteur du <header>
+  function setHeaderOffset() {
+    const h = document.querySelector('header')?.offsetHeight || 0;
+    document.documentElement.style.setProperty('--header-h', h + 'px');
+  }
+  window.addEventListener('load', setHeaderOffset);
+  window.addEventListener('resize', setHeaderOffset);
+</script>
+<body>
+  <header class="container" style="display:flex; align-items:center; gap:20px;">
+    <img src="photo.png" alt="Photo de Lucas Crepin" style="width:120px; height:120px; border-radius:50%; object-fit:cover;">
+    <div>
+      <h1>Lucas Crepin</h1>
+      <p class="subtitle">Masseur-Kinésithérapeute — RPPS : 10110997441</p>
+      <nav aria-label="Navigation principale">
+        <a href="#competences">Compétences</a>
+        <a href="#experience">Expérience</a>
+        <a href="#formations">Formations</a>
+        <a href="#qualite">Qualité</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section id="competences">
+      <h2>Compétences clés</h2>
+      <div class="badges">
+        <span class="badge">Prise en charge globale (patient alité → sportif)</span>
+        <span class="badge">Kiné du sport</span>
+        <span class="badge">Thérapie manuelle</span>
+        <span class="badge">Balnéothérapie</span>
+        <span class="badge">Physiothérapie</span>
+        <span class="badge">Rééducation post-op / neurologique / appareillage</span>
+      </div>
+      <p class="note">Polyvalent sur l’ensemble des champs (hors périnéo, vestibulaire, maxillo-facial — bases théoriques).</p>
+    </section>
+
+    <section id="experience">
+      <h2>Expérience professionnelle</h2>
+      <div class="grid">
+        <div class="card">
+          <strong>Cabinet libéral, Cucq — 2025</strong>
+          <p>Autonomie complète (≈90 patients la dernière semaine), polyvalence, retours très positifs.</p>
+        </div>
+        <div class="card">
+          <strong>Cabinet & Équipe N1 Basket, Boulogne-sur-Mer — 2025</strong>
+          <p>Suivi de l’équipe + soins cabinet/domicile.</p>
+        </div>
+        <div class="card">
+          <strong>Centre de Rééducation, Oignies — 2023</strong>
+          <p>Post-opératoire : amputations, prothèses.</p>
+        </div>
+        <div class="card">
+          <strong>Cabinet libéral, Eleu-dit-Leauwette — 2023</strong>
+          <p>Kiné du sport, balnéo, thérapie manuelle.</p>
+        </div>
+        <div class="card">
+          <strong>CH Arras & Cabinet Berck — 2022</strong>
+          <p>UNV, réanimation, physiothérapie instrumentale.</p>
+        </div>
+        <div class="card">
+          <strong>CH Archet (Nice) & Cabinet Liévin — 2021</strong>
+          <p>SSR, réanimation, premiers soins en structure hospitalière.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="formations">
+      <h2>Formations</h2>
+      <ul>
+        <li><strong>DE Masseur-Kinésithérapeute</strong> — IFMK Berck-sur-Mer (2021–2025)</li>
+        <li><strong>PASS</strong> — Université de Lille — classé 6ᵉ/440 (2020–2021)</li>
+        <li><strong>Bac S</strong> — Mention Bien — Lycée Guy Mollet, Arras (2020)</li>
+      </ul>
+    </section>
+
+    <section id="qualite">
+      <h2>Qualité & retours (agrégés)</h2>
+      <p class="note">Données anonymisées et affichées uniquement sous forme agrégée.</p>
+
+      <div class="kpi-grid">
+        <div class="kpi">
+          <div class="kpi-value" id="kpi-reco">—</div>
+          <div class="kpi-label">% recommanderaient</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-value" id="kpi-clarte">—</div>
+          <div class="kpi-label">clarté moyenne /10</div>
+        </div>
+        <div class="kpi">
+          <div class="kpi-value" id="kpi-amelio">—</div>
+          <div class="kpi-label">amélioration moyenne</div>
+        </div>
+      </div>
+
+      <p><a class="button" href="feedback.html">Laisser un retour</a></p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email : <a href="mailto:lucas.crepin62@gmail.com">lucas.crepin62@gmail.com</a></p>
+      <p>Tél : <a href="tel:+33647967386">06 47 96 73 86</a></p>
+      <p>Mobilité : France & DOM</p>
+    </section>
+
+  </main>
+
+  <footer class="container">
+    <small>© <span id="year"></span> Lucas Crepin — Communication loyale et honnête (pas de témoignages individuels).</small>
+  </footer>
+
+  <script>
+  // ← Mets ici ton lien "Publier sur le Web" (onglet Stats → CSV)
+  const CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTx15COA6kK9sgnoLBNQKQ6q6R4WlA60plhFszBdF0LtVXRouSuRM8bvPrAwadFK5frDsjqQQvym4ra/pub?gid=1923155027&single=true&output=csv";
+
+  function loadStats() {
+    const url = CSV_URL + (CSV_URL.includes("?") ? "&" : "?") + "_ts=" + Date.now(); // anti-cache
+    fetch(url)
+      .then(r => {
+        if (!r.ok) throw new Error("HTTP " + r.status);
+        return r.text();
+      })
+      .then(text => {
+        // Détecte le séparateur (',' ou ';')
+        const firstLine = text.split(/\r?\n/)[0] || "";
+        const sep = firstLine.includes(";") ? ";" : ",";
+
+        // Parse CSV en tableau 2D
+        const rows = text
+          .trim()
+          .split(/\r?\n/)
+          .map(l => l.split(sep).map(s => s.replace(/^"|"$/g, "").trim()));
+
+        // Ton CSV = 3 lignes (index 0,1,2) et 2 colonnes (A=0, B=1)
+        const v = i => (rows[i] && rows[i][1] ? rows[i][1] : "—");
+
+        document.getElementById("kpi-reco").textContent   = v(0); // ligne 1, col B → % recommanderaient
+        document.getElementById("kpi-clarte").textContent = v(1); // ligne 2, col B → clarté moyenne
+        document.getElementById("kpi-amelio").textContent = v(2); // ligne 3, col B → amélioration moyenne
+      })
+      .catch(err => {
+        console.error("[Stats] Erreur:", err);
+        document.getElementById("kpi-reco").textContent   = "—";
+        document.getElementById("kpi-clarte").textContent = "—";
+        document.getElementById("kpi-amelio").textContent = "—";
+      });
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    loadStats();
+    document.getElementById("year").textContent = new Date().getFullYear();
+  });
+</script>
+</body>
+</html>
